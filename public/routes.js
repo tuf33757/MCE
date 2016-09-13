@@ -5,7 +5,7 @@ module.exports = function(app, passport) {
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
-        res.sendFile('C:/Users/Rob/MCE/public/index.html'); // load the index.ejs file
+        res.sendFile('/index.html', { root: __dirname }); // load the index.ejs file
     });
 
     // =====================================
@@ -15,14 +15,26 @@ module.exports = function(app, passport) {
     app.get('/TeacherLogin', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.sendFile('partials/TeacherLogin.html', { message: req.flash('loginMessage') }); 
+        res.sendFile('partials/TeacherLogin.html', { root: __dirname }, { message: req.flash('loginMessage') }); 
     });
 
+ app.get('/studentLogin', function(req, res) {
+
+        // render the page and pass in any flash data if it exists
+        res.sendFile('partials/studentLogin.html', { root: __dirname }, { message: req.flash('loginMessage') }); 
+    });
 
 app.get('/landingPage', function(req, res) {
 
         // render the page and pass in any flash data if it exists
         res.sendFile('partials/landingPage.html' , { root: __dirname }); 
+    });
+
+
+    app.get('/transaction', function(req, res) {
+
+        // render the page and pass in any flash data if it exists
+        res.sendFile('partials/transaction.html' , { root: __dirname }); 
     });
 
    /*// process the login form
