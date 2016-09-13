@@ -15,7 +15,14 @@ module.exports = function(app, passport) {
     app.get('/TeacherLogin', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('partials/TeacherLogin.html', { message: req.flash('loginMessage') }); 
+        res.sendFile('partials/TeacherLogin.html', { message: req.flash('loginMessage') }); 
+    });
+
+
+app.get('/landingPage', function(req, res) {
+
+        // render the page and pass in any flash data if it exists
+        res.sendFile('partials/landingPage.html' , { root: __dirname }); 
     });
 
    /*// process the login form
