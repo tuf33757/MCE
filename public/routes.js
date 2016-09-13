@@ -5,7 +5,7 @@ module.exports = function(app, passport) {
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
-        res.render('/public/index.html'); // load the index.ejs file
+        res.sendFile('C:/Users/Rob/MCE/public/index.html'); // load the index.ejs file
     });
 
     // =====================================
@@ -15,7 +15,7 @@ module.exports = function(app, passport) {
     app.get('/TeacherLogin', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('TeacherLogin', { message: req.flash('loginMessage') }); 
+        res.render('partials/TeacherLogin.html', { message: req.flash('loginMessage') }); 
     });
 
    /*// process the login form
